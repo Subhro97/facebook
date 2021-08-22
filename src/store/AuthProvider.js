@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import AuthContext from "./auth-context";
 import { auth } from "../firebase/firebase";
-import { supportsGoWithoutReloadUsingHash } from "history/DOMUtils";
 
 
 const AuthProvider = (props) => {

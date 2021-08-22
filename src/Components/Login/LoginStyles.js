@@ -64,7 +64,23 @@ export const useStyles = makeStyles((theme) => ({
 
   root: {
     height: '456px',
-    width: '396px'
+    width: '396px',
+    backgroundColor: '#f2f2f2',
+    border: 'none',
+    boxShadow: ' none',
+  },
+
+  form: {
+    backgroundColor: '#fff',
+    paddingBottom: '24px',
+    paddingTop: '10px',
+    textAlign: 'center',
+    border: 'none',
+    borderRadius: '8px',
+    boxShadow: '0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%)',
+    boxSizing: 'border-box',
+    margin: '40px 0 0',
+    padding: '20px 0 28px'
   },
 
   input_container: {
@@ -73,6 +89,11 @@ export const useStyles = makeStyles((theme) => ({
     margin: "auto",
     padding: "6px 0",
     width: "364px",
+  },
+
+  log: {
+    paddingTop: '6px',
+    border:'none',
   },
 
   email: {
@@ -85,15 +106,35 @@ export const useStyles = makeStyles((theme) => ({
     padding: '14px 16px',
     verticalAlign: 'middle',
     width:'330px',
-    borderRadius: '6px'
+    borderRadius: '6px',
   },
 
   button: {
+    fontFamily: 'Segoe UI',
     color: "white",
     background: "rgba(24,119,242,100)",
+    borderRadius: '6px',
+    fontSize: '20px',
+    lineHeight: '48px',
+    padding: '0 16px',
+    width: '364px',
     "&:hover": {
       background: "#186af2",
     },
+  },
+
+  forgot: {
+    marginTop: '16px'
+  },
+
+  nav: {
+    color: '#1877f2',
+    fontSize: '14px',
+    fontWeight: '500',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline'
+    }
   },
 
   break: {
@@ -102,6 +143,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     margin: "20px 16px",
     textAlign: "center",
+    
   },
 
   signup: {
@@ -116,8 +158,20 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "17px",
     lineHeight: "48px",
     padding: "0 16px",
+    fontWeight: 'bold',
+    width:'189.79px',
+    height:'49.78px',
+    boxSizing: 'content-box',
+    fontFamily: 'Helvetica, Arial, sans-serif',
+    marginLeft: '5.5rem',
+    cursor: 'pointer',
     "&:hover": {
-      background: "#42b72a",
+      background: "#40a82a",
     },
   },
+
+  progress: {
+    marginTop: '20rem',
+    marginLeft: '45rem'
+  }
 }));

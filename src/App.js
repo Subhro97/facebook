@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Switch>
-          <Login/>
+          <Route path='/' component={Login}/>
         </Switch>
       </AuthProvider>
     </BrowserRouter>
