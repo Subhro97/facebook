@@ -38,8 +38,8 @@ const Login = () => {
     console.log('hi')
     try {
       setIsLoading(true);
-      console.log('Loggin in')
       await login(email, password);
+      console.log('Logged in');
     } catch (err) {
       setError("Invalid credentials");
       setTimeout(() => {

@@ -107,7 +107,7 @@ export const useStyles = makeStyles({
 
   password_container: {
     width: "410px",
-    height: "50px",
+    height: "40px",
   },
 
   password: {
@@ -124,6 +124,7 @@ export const useStyles = makeStyles({
 
   button_container: {
     textAlign: "center",
+    marginTop: "15px",
   },
 
   button: {
@@ -133,5 +134,33 @@ export const useStyles = makeStyles({
     padding: "0 32px",
     marginTop: "10px",
     marginBottom: "10px",
+  },
+
+  progress: {
+    marginTop: "12rem",
+  },
+
+  pic: {
+    boxSizing: "border-box",
+    width: "410px",
+    height: "50px",
+  },
+
+  pass_input: {
+    boxSizing: "border-box",
+    height: "40px",
+    width: "410px",
+    borderRadius: "5px",
+    background: "#f5f6f7",
+    outline: "none",
+    padding: "10px 15px",
+    border: "0.5px solid grey",
+    fontSize: "15px",
+  },
+
+  input_label: {
+    boxSizing: "border-box",
+    fontSize: "12px",
+    padding: "0px 0px 10px",
   },
 });
