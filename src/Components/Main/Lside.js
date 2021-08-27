@@ -57,6 +57,8 @@ const array = [
 
 const useStyles = makeStyles((theme) => ({
   left_container: {
+    position:'fixed',
+    top:'64px',
     background: "#18191a",
     width: "360px",
     overflow: "hidden",

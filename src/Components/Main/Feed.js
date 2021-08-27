@@ -45,7 +45,7 @@ const Feed = () => {
           </header>
           <main className={classes.main}>
             <Lside name={fullName} pic={pic} />
-            <Center name={name} pic={pic}/>
+            <Center name={name} full={fullName} pic={pic}/>
             <Rside />
           </main>
         </>

@@ -11,6 +11,9 @@ import { friends } from "./friends";
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    position:'fixed',
+    top:'64px',
+    left:'1159.2px',
     background: "#18191a",
     width: "360px",
     height: "660px",

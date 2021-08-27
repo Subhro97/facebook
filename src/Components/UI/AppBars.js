@@ -264,7 +264,7 @@ export default function PrimarySearchAppBar(props) {
   return (
     <Fragment>
       <div className={classes.grow}>
-        <AppBar position="static" className={classes.header}>
+        <AppBar position="fixed" className={classes.header}>
           <Toolbar>
             <div>
               <Logo />

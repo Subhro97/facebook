@@ -11,6 +11,7 @@ import { green, yellow } from "@material-ui/core/colors";
 import clsx from "clsx";
 import Nbackdrop from "../UI/Nbackdrop";
 import ImageAvatars from "../UI/ImageAvatars";
+import Post from "../UI/Post";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${"https://i.pinimg.com/originals/ba/75/8e/ba758e7f4db9405430e6ff651622a03d.jpg"})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    cursor: "pointer", 
+    cursor: "pointer",
   },
 
   paper_2: {
@@ -59,20 +60,20 @@ const useStyles = makeStyles((theme) => ({
   container: {
     background: "#18191a",
     width: "799.2px",
-    height: "660px",
-
+    height: "100%",
     paddingLeft: "32px",
     paddingRight: "32px",
     display: "flex",
     justifyContent: "center",
+    left: "360px",
+    top: "62px",
+    position: "relative",
   },
 
   inner_container: {
     boxSizing: "border-box",
     maxWidth: "100%",
     width: "100%",
-    height: "69%",
-    marginTop: "16px",
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
@@ -80,9 +81,9 @@ const useStyles = makeStyles((theme) => ({
 
   stories: {
     width: "630px",
-    height: "230.4px",
+    height: "100%",
     maxWidth: "100%",
-    paddingTop: "24px",
+    paddingTop: "18px",
     paddingBottom: "24px",
   },
 
@@ -302,6 +303,9 @@ const Center = (props) => {
                 </Grid>
               </Grid>
             </div>
+          </div>
+          <div style={{ display: "flex", padding: "0px 19px 19px" }}>
+            <Post name={props.full} pic={props.pic}/>
           </div>
         </div>
       </div>
