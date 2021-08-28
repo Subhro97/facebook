@@ -138,6 +138,10 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "5px",
     },
   },
+  video:{
+    width: '100%',
+    height: '100%',
+  },
 }));
 
 let white = "#e4e6eb";
@@ -175,7 +179,7 @@ export default function Post(props) {
       let newArr = [...comment];
       newArr[index] = { id: index, com: val };
       setComment(newArr);
-      setValue((val) => val + 1)
+      setValue((val) => val + 1);
     }
   };
 
@@ -200,10 +204,14 @@ export default function Post(props) {
       />
       <CardContent>
         <Typography variant="body2" color="#e4e6eb" component="p">
-          Caption: Friendly Neighbour, Spiderman!
+          {props.post}
         </Typography>
       </CardContent>
-      <CardMedia className={classes.media} image="Images/spider.jpg" />
+      {props.comp === "video" ? (
+        <video src={props.media} className={classes.video} type='video/mp4' controls/>
+      ) : (
+        <CardMedia className={classes.media} image={props.media} />
+      )}
 
       <CardActions
         disableSpacing
@@ -265,7 +273,7 @@ export default function Post(props) {
           <div className={classes.hover}>
             <Avatar
               alt="Remy Sharp"
-              src={props.pic}
+              src='/Images/spider.jpg'
               className={clsx(classes.avatar, classes.size)}
             />
             <ArrowDropDownRoundedIcon style={{ color: "#e4e6eb" }} />
@@ -275,14 +283,19 @@ export default function Post(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <div className={classes.border} />
         {comment &&
-          comment.map((comment) => (
-            <Comment key={comment.id} pic={props.pic} name={props.name} comment={comment.com} />
+          comment.map((item) => (
+            <Comment
+              key={comment.id}
+              pic={props.pic}
+              name={props.name}
+              comment={comment.com}
+            />
           ))}
 
         <CardContent className={classes.comments}>
           <Grid container justifyContent="center">
             <Grid item xs={12} className={classes.grid} spacing={1}>
-              <ImageAvatars image={props.pic} />
+              <ImageAvatars image='/Images/spider.jpg'/>
               <input
                 className={classes.post_input}
                 placeholder={`Write a comment...`}

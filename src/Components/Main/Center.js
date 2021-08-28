@@ -12,6 +12,7 @@ import clsx from "clsx";
 import Nbackdrop from "../UI/Nbackdrop";
 import ImageAvatars from "../UI/ImageAvatars";
 import Post from "../UI/Post";
+import AddPost from "../UI/AddPost";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -178,7 +179,55 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: alpha(theme.palette.common.white, 0.2),
     },
   },
+  list: {
+    listStyleType: "none",
+    padding: "0px",
+    margin: "0px",
+  },
 }));
+
+const post = [
+  {
+    id: "p1",
+    pic: "/Images/spider.jpg",
+    name: "Peter Parker",
+    post: "Caption: Friendly Neighbour, Spiderman!",
+    postmedia: "/Images/spider.jpg",
+    comp: "img",
+    com: "",
+    likes: "",
+  },
+  {
+    id: "p2",
+    pic: "/Images/spider.jpg",
+    name: "Peter Parker",
+    post: "Spiderman: No way Home - Trailer",
+    postmedia: "/Images/Trailer.mp4",
+    comp: "video",
+    com: "",
+    likes: "",
+  },
+  {
+    id: "p3",
+    pic: "/Images/strange.jpg",
+    name: "Stephen Strange",
+    post: '"Be careful what you wish for Parker!"',
+    postmedia: "/Images/movie.jpg",
+    comp: "img",
+    com: "",
+    likes: "",
+  },
+  {
+    id: "p4",
+    pic: "/Images/sam.jpg",
+    name: "Sam Wilson",
+    post: "Caption: Friendly Neighbour, Spiderman!",
+    postmedia: "/Images/falcon.jpg",
+    comp: "img",
+    com: "",
+    likes: "",
+  },
+];
 
 const Center = (props) => {
   const classes = useStyles();
@@ -190,7 +239,8 @@ const Center = (props) => {
 
   return (
     <Fragment>
-      {flag && <Nbackdrop onClick={postHandler} />}
+      {flag && <Nbackdrop/>}
+      {flag && <AddPost onClick={postHandler} />}
       <div className={classes.container}>
         <div className={classes.inner_container}>
           <div className={classes.stories}>
@@ -305,7 +355,19 @@ const Center = (props) => {
             </div>
           </div>
           <div style={{ display: "flex", padding: "0px 19px 19px" }}>
-            <Post name={props.full} pic={props.pic}/>
+            <ul className={classes.list}>
+              {post.map((item) => (
+                <li key={item.id} style={{ paddingBottom: "20px" }}>
+                  <Post
+                    name={item.name}
+                    pic={item.pic}
+                    media={item.postmedia}
+                    comp={item.comp}
+                    post={item.post}
+                  />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

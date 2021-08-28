@@ -5,6 +5,7 @@ import "./App.css";
 import Login from "./Components/Login/Login";
 import Feed from "./Components/Main/Feed";
 import Logo from "./Components/UI/Logo";
+import AddPost from "./Components/UI/AddPost";
 
 
 function App() {
