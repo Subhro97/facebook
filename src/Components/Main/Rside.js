@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     left:'1159.2px',
     background: "#18191a",
     width: "360px",
-    height: "660px",
+    height: "100vh",
   },
 
   inner_container: {

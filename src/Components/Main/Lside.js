@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#18191a",
     width: "360px",
     overflow: "hidden",
-    height: "660px",
+    height: "100vh",
   },
 
   inner_container: {
