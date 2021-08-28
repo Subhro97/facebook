@@ -14,6 +14,8 @@ import { CircularProgress } from "@material-ui/core";
 import Backdrop from "../UI/Backdrop";
 import Signup from "../Signup/Signup";
 
+import { useHistory } from "react-router-dom";
+
 const theme = createMuiTheme({
   typography: {
     button: {
@@ -33,6 +35,8 @@ const Login = () => {
   const [toSign, setToSign] = useState(false);
   const { login } = useContext(AuthContext);
 
+  const history = useHistory();
+
   const formSubmitHandler = async (e) => {
     e.preventDefault();
     console.log('hi')
@@ -40,6 +44,7 @@ const Login = () => {
       setIsLoading(true);
       await login(email, password);
       console.log('Logged in');
+      history.push('/feed');
     } catch (err) {
       setError("Invalid credentials");
       setTimeout(() => {

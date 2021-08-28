@@ -186,9 +186,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const post = [
+export const post = [
   {
-    id: "p1",
+    id: "1",
     pic: "/Images/spider.jpg",
     name: "Peter Parker",
     post: "Caption: Friendly Neighbour, Spiderman!",
@@ -198,7 +198,7 @@ const post = [
     likes: "",
   },
   {
-    id: "p2",
+    id: "2",
     pic: "/Images/spider.jpg",
     name: "Peter Parker",
     post: "Spiderman: No way Home - Trailer",
@@ -208,7 +208,7 @@ const post = [
     likes: "",
   },
   {
-    id: "p3",
+    id: "3",
     pic: "/Images/strange.jpg",
     name: "Stephen Strange",
     post: '"Be careful what you wish for Parker!"',
@@ -218,10 +218,10 @@ const post = [
     likes: "",
   },
   {
-    id: "p4",
+    id: "4",
     pic: "/Images/sam.jpg",
     name: "Sam Wilson",
-    post: "Caption: Friendly Neighbour, Spiderman!",
+    post: "Captain Falcon America",
     postmedia: "/Images/falcon.jpg",
     comp: "img",
     com: "",
@@ -364,6 +364,7 @@ const Center = (props) => {
                     media={item.postmedia}
                     comp={item.comp}
                     post={item.post}
+                    compam={item.id}
                   />
                 </li>
               ))}

@@ -138,9 +138,9 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "5px",
     },
   },
-  video:{
-    width: '100%',
-    height: '100%',
+  video: {
+    width: "100%",
+    height: "100%",
   },
 }));
 
@@ -153,6 +153,19 @@ export default function Post(props) {
   const [color, setColor] = useState(false);
   const [value, setValue] = useState("0");
   const [comment, setComment] = useState([]);
+  const [place, setPlace] = useState("");
+
+  const postmedia =
+    props.comp === "video" ? (
+      <video
+        src={props.media}
+        className={classes.video}
+        type="video/mp4"
+        controls
+      />
+    ) : (
+      <CardMedia className={classes.media} image={props.media} />
+    );
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -162,15 +175,8 @@ export default function Post(props) {
     let thumb = e.currentTarget;
     let col = thumb.style.color;
 
-    if (color) {
-      thumb.parentNode.childNodes[1].style.color = blue;
-      thumb.style.color = blue;
-      setColor(true);
-    } else {
-      thumb.parentNode.childNodes[1].style.color = white;
-      thumb.style.color = white;
-      setColor(false);
-    }
+    thumb.parentNode.childNodes[1].style.color = blue;
+    thumb.style.color = blue;
   };
 
   const inputHandler = (index) => (e) => {
@@ -180,6 +186,7 @@ export default function Post(props) {
       newArr[index] = { id: index, com: val };
       setComment(newArr);
       setValue((val) => val + 1);
+      document.getElementById("input").value = '';
     }
   };
 
@@ -203,15 +210,26 @@ export default function Post(props) {
         subheader={<span style={{ color: "#e4e6eb" }}>26 August, 2021</span>}
       />
       <CardContent>
-        <Typography variant="body2" color="#e4e6eb" component="p">
-          {props.post}
-        </Typography>
+        {props.media === "" ? (
+          <Typography
+            variant="body2"
+            color="#e4e6eb"
+            component="p"
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: "400",
+              lineHeight: "1.1667",
+            }}
+          >
+            {props.post}
+          </Typography>
+        ) : (
+          <Typography variant="body2" color="#e4e6eb" component="p">
+            {props.post}
+          </Typography>
+        )}
       </CardContent>
-      {props.comp === "video" ? (
-        <video src={props.media} className={classes.video} type='video/mp4' controls/>
-      ) : (
-        <CardMedia className={classes.media} image={props.media} />
-      )}
+      {props.media === "" ? <></> : postmedia}
 
       <CardActions
         disableSpacing
@@ -273,7 +291,7 @@ export default function Post(props) {
           <div className={classes.hover}>
             <Avatar
               alt="Remy Sharp"
-              src='/Images/spider.jpg'
+              src="/Images/spider.jpg"
               className={clsx(classes.avatar, classes.size)}
             />
             <ArrowDropDownRoundedIcon style={{ color: "#e4e6eb" }} />
@@ -282,21 +300,70 @@ export default function Post(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <div className={classes.border} />
+        {props.compam === "1" ? (
+          <>
+            <Comment
+              key="c1"
+              pic="/Images/strange.jpg"
+              name="Stephen Strange"
+              comment="Looks pretty good!"
+            />
+            <Comment
+              key="c2"
+              pic="/Images/sam.jpg"
+              name="Sam Wilson"
+              comment="I can do better!"
+            />
+          </>
+        ) : props.compam === "4" ? (
+          <>
+            <Comment
+              key="c1"
+              pic="/Images/cap.jpg"
+              name="Steve Rogers"
+              comment="I knew you can do it!"
+            />
+            <Comment
+              key="c2"
+              pic="/Images/sam.jpg"
+              name="Sam Wilson"
+              comment="Thanx Cap!!"
+            />
+          </>
+        ) : props.compam === "2" ? (
+          <>
+            <Comment
+              key="c1"
+              pic="/Images/happy.jpg"
+              name="Happy Hogan"
+              comment="Awasome!"
+            />
+            <Comment
+              key="c2"
+              pic="/Images/bucky.jpg"
+              name="Bucky Barnes"
+              comment="....!"
+            />
+          </>
+        ) : (
+          <></>
+        )}
         {comment &&
           comment.map((item) => (
             <Comment
-              key={comment.id}
+              key={item.id}
               pic={props.pic}
               name={props.name}
-              comment={comment.com}
+              comment={item.com}
             />
           ))}
 
         <CardContent className={classes.comments}>
           <Grid container justifyContent="center">
             <Grid item xs={12} className={classes.grid} spacing={1}>
-              <ImageAvatars image='/Images/spider.jpg'/>
+              <ImageAvatars image="/Images/spider.jpg" />
               <input
+                id="input"
                 className={classes.post_input}
                 placeholder={`Write a comment...`}
                 onKeyDown={inputHandler(value)}

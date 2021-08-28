@@ -291,7 +291,7 @@ export default function PrimarySearchAppBar(props) {
                 color="inherit"
               >
                 <Badge color="secondary">
-                  <HomeIcon className={classes.option_select} />
+                  <HomeIcon className={classes.option_select} style={{color:"#2d88ff"}}/>
                 </Badge>
               </IconButton>
               <IconButton

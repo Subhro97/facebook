@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Switch>
-          <Route path='/' component={Feed}/>
+          <Route path='/feed' component={Feed}/>
           <Route path='/' component={Login}/>
         </Switch>
       </AuthProvider>

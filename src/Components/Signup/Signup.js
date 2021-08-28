@@ -8,6 +8,7 @@ import { useStyles } from "./SignupStyles";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import { CircularProgress } from "@material-ui/core";
 import { database, storage } from "../../firebase/firebase";
+import { useHistory } from "react-router-dom";
 
 const theme = createTheme({
   typography: {
@@ -38,6 +39,8 @@ const Sign = (props) => {
   const [file, setFile] = useState(null);
 
   const { signup } = useContext(AuthContext);
+
+  const history = useHistory();
 
   const formSubmitHandler = async () => {
     try {
@@ -73,6 +76,7 @@ const Sign = (props) => {
           profileUrl: downloadUrl,
           postIds: [],
         });
+        history.push('/feed');
       }
       console.log("User has Signed up");
     } catch (err) {

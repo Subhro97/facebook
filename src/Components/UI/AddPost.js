@@ -12,6 +12,7 @@ import PersonAddRoundedIcon from "@material-ui/icons/PersonAddRounded";
 import MicRoundedIcon from "@material-ui/icons/MicRounded";
 import { green, yellow } from "@material-ui/core/colors";
 import { display } from "@material-ui/system";
+import { post } from "../Main/Center";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -64,7 +65,19 @@ function AddPosttemp(props) {
   const classes = useStyles();
   const [photo, setPhoto] = useState("");
 
-  const addPhotoHandler = () => {};
+  const newPostHandler = (e) => {
+    if (e.key === "Enter") {
+      post.unshift({
+        id: Math.random().toFixed(2),
+        pic: "/Images/spider.jpg",
+        name: "Peter Parker",
+        post: e.target.value,
+        postmedia: "",
+        com: "",
+        likes: "",
+      });
+    }
+  };
 
   return (
     <Card
@@ -115,7 +128,7 @@ function AddPosttemp(props) {
           </span>
         </div>
       </div>
-      <div className={classes.body}>
+      <div id="body" className={classes.body}>
         <textarea
           placeholder="What's on your mind, Peter?"
           style={{
@@ -130,6 +143,7 @@ function AddPosttemp(props) {
             color: "#e4e6eb",
             overflow: "hidden",
           }}
+          onKeyDown={newPostHandler}
         />
         <div style={{ display: "flex", padding: "0px 10px" }}>
           <div style={{ width: "90%" }}>
@@ -189,7 +203,6 @@ function AddPosttemp(props) {
               <div className={classes.camera}>
                 <AddPhotoAlternateRoundedIcon
                   style={{ color: green[500], fontSize: "30px" }}
-                  onClick={addPhotoHandler}
                 />
               </div>
             </div>
@@ -240,6 +253,7 @@ function AddPosttemp(props) {
             fontWeight: "600",
             borderRadius: "8px",
           }}
+          onClick={props.onClick}
         >
           Post
         </Button>
