@@ -173,6 +173,9 @@ const useStyles = makeStyles((theme) => ({
     width: "30px",
     height: "30px",
   },
+  menu:{
+    color:"#242526"
+  }
 }));
 
 export default function PrimarySearchAppBar(props) {
@@ -210,6 +213,7 @@ export default function PrimarySearchAppBar(props) {
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+      className={classes.menu}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
